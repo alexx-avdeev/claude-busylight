@@ -1,0 +1,21 @@
+{
+  "description": "Report Claude Code state to the busylight daemon (build/busylight daemon) via per-session state files.",
+  "hooks": {
+    "SessionStart":       [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state idle 2>/dev/null || true",      "timeout": 5 }] }],
+    "UserPromptSubmit":   [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state busy 2>/dev/null || true",      "timeout": 5 }] }],
+    "PreToolUse":         [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state pre-tool 2>/dev/null || true",  "timeout": 5 }] }],
+    "PostToolUse":        [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state busy 2>/dev/null || true",      "timeout": 5 }] }],
+    "PostToolUseFailure": [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state busy 2>/dev/null || true",      "timeout": 5 }] }],
+    "PermissionDenied":   [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state busy 2>/dev/null || true",      "timeout": 5 }] }],
+    "PreCompact":         [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state busy 2>/dev/null || true",      "timeout": 5 }] }],
+    "Notification": [
+      { "matcher": "permission_prompt|elicitation_dialog", "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state attention 2>/dev/null || true", "timeout": 5 }] },
+      { "matcher": "idle_prompt",                          "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state idle 2>/dev/null || true",      "timeout": 5 }] }
+    ],
+    "Elicitation":        [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state attention 2>/dev/null || true", "timeout": 5 }] }],
+    "ElicitationResult":  [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state busy 2>/dev/null || true",      "timeout": 5 }] }],
+    "Stop":               [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state idle 2>/dev/null || true",      "timeout": 5 }] }],
+    "StopFailure":        [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state idle 2>/dev/null || true",      "timeout": 5 }] }],
+    "SessionEnd":         [{ "hooks": [{ "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/build/busylight\" state end 2>/dev/null || true",       "timeout": 5 }] }]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "busylight",
+  "version": "0.2.0",
+  "description": "Drives a Kuando Busylight from Claude Code state: green when idle, yellow when working, red when waiting for your input.",
+  "author": {
+    "name": "Alexey Avdeev"
+  },
+  "license": "0BSD",
+  "homepage": "https://github.com/alexx-avdeev/claude-busylight",
+  "repository": "https://github.com/alexx-avdeev/claude-busylight",
+  "keywords": [
+    "busylight",
+    "kuando",
+    "status-light",
+    "hooks",
+    "hardware"
+  ],
+  "icon": "./.claude-plugin/icon.png",
+  "displayName": "Busylight for Claude Code"
+}

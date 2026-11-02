@@ -1,0 +1,17 @@
+{
+  "name": "busylight-local",
+  "owner": {
+    "name": "Alexey Avdeev",
+    "url": "https://github.com/alexx-avdeev"
+  },
+  "plugins": [
+    {
+      "name": "busylight",
+      "source": "./",
+      "description": "Kuando Busylight status indicator for Claude Code",
+      "homepage": "https://github.com/alexx-avdeev/claude-busylight",
+      "license": "0BSD"
+    }
+  ],
+  "description": "Kuando Busylight status indicator for Claude Code"
+}

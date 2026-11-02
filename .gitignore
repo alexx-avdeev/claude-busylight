@@ -1,0 +1,4 @@
+daemon/target/
+build/
+.claude-plugin/types/
+*.log

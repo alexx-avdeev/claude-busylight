@@ -1,0 +1,3 @@
+# Kuando / Plenom Busylight (USB vendor 27bb): let the logged-in user talk to it.
+# Must sort before 70-uaccess.rules / 73-seat-late.rules, which turn the tag into an ACL.
+KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="27bb", TAG+="uaccess"
